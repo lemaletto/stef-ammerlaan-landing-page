@@ -1,10 +1,10 @@
 'use client';
 
-import { navbarLinks } from '@/mock/data';
+import { navbarLinks } from '../mock/data';
 import Dropdown from './Dropdown';
-import { useApp } from '@/context/AppContext';
+import { useApp } from '../context/AppContext';
 import { motion } from 'framer-motion';
-import { appVariant } from '@/variants/app.variant';
+import { appVariant } from '../variants/app.variant';
 import Link from 'next/link';
 
 export default function Navbar() {
