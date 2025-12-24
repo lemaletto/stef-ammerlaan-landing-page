@@ -1,6 +1,5 @@
-import { projects } from '@/mock/data';
+import { houses } from '@/mock/data';
 import Slider from '@/components/Slider';
-import Footer from '@/components/Footer';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -9,34 +8,36 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-// Generate static params for all projects
+// Generate static params for all houses
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    id: project.id,
+  return houses.map((house) => ({
+    id: house.id,
   }));
 }
 
-// Generate metadata for each project page
+// Generate metadata for each house page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const project = projects.find((item) => item.id === id);
+  const house = houses.find((item) => item.id === id);
 
-  if (!project) {
+  if (!house) {
     return {
       title: 'Project Not Found',
     };
   }
 
   return {
-    title: `${project.title} - Stef Ammerlaan Architecture`,
+    title: `Maison ${house.id} - Stef Ammerlaan Architecture`,
     description:
-      "Chaque maison développée chez Ammerlaan Stef Architecture démarre par la prise en compte d'un programme établi du Maitre d'Ouvrage (client). L'architecture proposée répond aux attentes escomptées ainsi que les contraintes du site.",
+      house.description.find((d) => d.lan === 'fr')?.content ||
+      "Chaque maison développée chez Ammerlaan Stef Architecture démarre par la prise en compte d'un programme établi du Maitre d'Ouvrage (client).",
     keywords:
       'site, architecture, stef, ammerlaan, architecte, nîmes, gard, avignon, montpellier, construction, maison, bâtiment, permis de construire, chantier, projet, image, art, balcon, Nîmes',
     openGraph: {
-      title: `${project.title} - Stef Ammerlaan Architecture`,
+      title: `Maison ${house.id} - Stef Ammerlaan Architecture`,
       description:
-        "Chaque maison développée chez Ammerlaan Stef Architecture démarre par la prise en compte d'un programme établi du Maitre d'Ouvrage (client). L'architecture proposée répond aux attentes escomptées ainsi que les contraintes du site.",
+        house.description.find((d) => d.lan === 'fr')?.content ||
+        "Chaque maison développée chez Ammerlaan Stef Architecture démarre par la prise en compte d'un programme établi du Maitre d'Ouvrage (client).",
     },
   };
 }
@@ -44,9 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Async Server Component - the new way in Next.js
 export default async function SingleProject({ params }: Props) {
   const { id } = await params;
-  const project = projects.find((item) => item.id === id);
+  const house = houses.find((item) => item.id === id);
 
-  if (!project) {
+  if (!house) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
@@ -80,13 +81,13 @@ export default async function SingleProject({ params }: Props) {
         {/* Project Header */}
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-8 tracking-tight">
-            {project.title}
+            Maison {house.id}
           </h1>
           <div className="w-20 h-px bg-gray-300 mb-10"></div>
 
           {/* Descriptions */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {project.description?.map((item) => (
+            {house.description?.map((item) => (
               <div key={item.lan} className="space-y-4">
                 <p className="text-xs uppercase tracking-wider text-gray-400 mb-4">
                   {item.lan === 'fr' ? 'Français' : 'English'}
@@ -102,7 +103,13 @@ export default async function SingleProject({ params }: Props) {
         {/* Project Images - Large Slider */}
         <div className="mb-24">
           <div className="relative">
-            <Slider images={project.images} />
+            <Slider
+              images={
+                house.concepts && house.concepts.length > 0
+                  ? house.concepts
+                  : [house.picture]
+              }
+            />
           </div>
         </div>
 
@@ -111,21 +118,31 @@ export default async function SingleProject({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-sm uppercase tracking-wider text-gray-400 mb-3">
-                Type
+                Date
               </h3>
-              <p className="text-gray-900">{project.title}</p>
+              <p className="text-gray-900">
+                {new Date(house.date).getFullYear()}
+              </p>
             </div>
             <div>
               <h3 className="text-sm uppercase tracking-wider text-gray-400 mb-3">
                 Statut
               </h3>
-              <p className="text-gray-900">En cours</p>
+              <p className="text-gray-900">
+                {house.status === 'underConstruction'
+                  ? 'En construction'
+                  : house.status === 'inProgress'
+                  ? 'En cours'
+                  : 'Terminé'}
+              </p>
             </div>
             <div>
               <h3 className="text-sm uppercase tracking-wider text-gray-400 mb-3">
-                Localisation
+                Mission
               </h3>
-              <p className="text-gray-900">Gard, France</p>
+              <p className="text-gray-900">
+                {house.missionCompleted ? 'Mission complète' : 'En cours'}
+              </p>
             </div>
           </div>
         </div>
@@ -151,8 +168,6 @@ export default async function SingleProject({ params }: Props) {
           </div>
         </div>
       </AnimatedSection>
-
-      <Footer />
     </div>
   );
 }

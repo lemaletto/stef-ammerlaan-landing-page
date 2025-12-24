@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
-import Footer from '@/components/Footer';
 import { projects } from '@/mock/data';
 import { houses } from '@/mock/data';
 import type { Metadata } from 'next';
@@ -154,8 +153,6 @@ export default function ProjectsList() {
           </Link>
         </div>
       </AnimatedSection>
-
-      <Footer />
     </div>
   );
 }

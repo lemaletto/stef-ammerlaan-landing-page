@@ -1,4 +1,3 @@
-import Footer from '@/components/Footer';
 import { ownerImg } from '@/mock/data';
 import AnimatedSection from '@/components/AnimatedSection';
 import Image from 'next/image';
@@ -246,8 +245,6 @@ export default function Agency() {
           </div>
         </div>
       </AnimatedSection>
-
-      <Footer />
     </div>
   );
 }

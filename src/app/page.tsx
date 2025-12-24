@@ -3,19 +3,16 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { useApp } from '@/context/AppContext';
-import Loading from '@/components/Loading';
 import AnimatedSection from '@/components/AnimatedSection';
 import Link from 'next/link';
 import { houses } from '@/mock/data';
 
 export default function Home() {
-  const { loading, setLoading } = useApp();
+  const { setLoading } = useApp();
 
-  useEffect(() => {
-    setLoading(true);
-  }, [setLoading]);
-
-  if (loading) return <Loading />;
+  // useEffect(() => {
+  //   setLoading(true);
+  // }, []);
 
   return (
     <div className="bg-white">
