@@ -1,23 +1,25 @@
-import styles from "../styles/footer.module.scss";
-import { motion } from "framer-motion";
-import { useRouter } from "next/router";
-import { imgLogo } from "../mock/data";
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { imgLogo } from '../mock/data';
 
 export default function Footer() {
   const router = useRouter();
-  const goHome = () => router.push("/");
+  const goHome = () => router.push('/');
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footer__wrapper} onClick={() => goHome()}>
-        <p className={styles.footer__wrapper__text}>
-          <span className={styles.bold}>ACCUEIL</span>
-          <span className={styles.light}>HOME</span>
+    <footer className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+      <div
+        className="flex flex-col items-center justify-center cursor-pointer"
+        onClick={() => goHome()}
+      >
+        <p className="flex flex-col items-center justify-center text-sm m-1.5">
+          <span className="font-bold mb-0.5">ACCUEIL</span>
+          <span className="font-light">HOME</span>
         </p>
         <motion.img
           layoutId="loading-img"
           src={imgLogo}
-          className={styles.footer__wrapper__logo}
+          className="w-15 h-auto object-contain cursor-pointer"
           alt="stef ammerlaan official logo"
         />
       </div>

@@ -1,11 +1,9 @@
-import styles from 'styles/house.module.scss';
 import { useEffect, useState } from 'react';
 import AnimatedSection from 'components/AnimatedSection';
 import Footer from 'components/Footer';
 import { HouseModel } from 'types';
 import { houses, getSliderImages, mappedKeyImages } from 'mock/data';
 import Image from 'next/image';
-import cls from 'classnames';
 import Head from 'next/head';
 import { convertImage, sleep, toBase64 } from 'utils/utils.helper';
 import Status from './components/Status';
@@ -57,7 +55,7 @@ const House = (house: HouseModel | undefined) => {
   }
 
   return (
-    <AnimatedSection className={styles.house}>
+    <AnimatedSection className="">
       <Head>
         <title>Stef Ammerlaan - Maison {house.id}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -76,36 +74,33 @@ const House = (house: HouseModel | undefined) => {
           content="Chaque maison développée évolue de manière buissonnante, jusqu’à ce que le projet dépasse les attentes."
         />
       </Head>
-      <header className={styles.house__header}>
-        <h3 className={styles.house__header__title}>Maison {house?.id}</h3>
-        <p className={styles.house__header__subtitle}>
-          Date : {house?.date.split(' ')[3]}
-        </p>
-        <div className={styles.house__header__subtitle}>
-          <span className={styles.bold}>Statut:</span>{' '}
-          <Status status={house?.status} />
+      <header className="">
+        <h3 className="">Maison {house?.id}</h3>
+        <p className="">Date : {house?.date.split(' ')[3]}</p>
+        <div className="">
+          <span className="">Statut:</span> <Status status={house?.status} />
         </div>
-        <div className={styles.house__header__subtitle}>
+        <div className="">
           <Mission isCompleted={house?.missionCompleted} />
         </div>
-        <p className={styles.house__header__subtitle}></p>
+        <p className=""></p>
       </header>
-      <main className={styles.house__main}>
-        <h5 className={styles.house__main__title}>Design</h5>
-        <div className={styles.house__main__img}>
+      <main className="">
+        <h5 className="">Design</h5>
+        <div className="">
           <Image
             layout="fill"
             src={house.picture}
-            className={styles.house__main__picture}
+            className=""
             alt={house.alt || ''}
           />
         </div>
         <Description description={house?.description} />
       </main>
 
-      <section className={styles.house__concept}>
-        <h5 className={styles.house__concept__title}>Concept</h5>
-        <div className={styles.house__concept__images}>
+      <section className="">
+        <h5 className="">Concept</h5>
+        <div className="">
           <ImagesAnimation id={house?.id} alt={house?.alt} />
         </div>
       </section>

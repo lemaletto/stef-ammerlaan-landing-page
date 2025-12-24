@@ -1,29 +1,27 @@
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { SET_LOADING } from "../context/slices/app.slice";
-import styles from "../styles/loading.module.scss";
-import { loadingVariant } from "../variants/loading.variant";
+import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useApp } from '../context/AppContext';
+import { loadingVariant } from '../variants/loading.variant';
 
 export default function Loading() {
-  const dispatch = useDispatch();
+  const { setLoading } = useApp();
   const gifLogo = `/assets/gif/LogoGif.gif`;
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(SET_LOADING(false));
+      setLoading(false);
     }, 2000);
-  }, [dispatch]);
+  }, [setLoading]);
 
   return (
-    <div className={styles.loading}>
+    <div className="w-screen h-screen overflow-hidden flex items-center justify-center">
       <motion.img
         variants={loadingVariant}
         initial="hidden"
         animate="animate"
         exit="exit"
         layoutId="loading-img"
-        className={styles.loading__img}
+        className="w-3/10 h-auto object-cover"
         src={gifLogo}
         alt="loading animation to landing page"
       />

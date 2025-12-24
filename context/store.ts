@@ -1,11 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
-import appSlice from "./slices/app.slice";
-
-export const store = configureStore({
-  reducer: {
-    app: appSlice,
-  },
-});
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// This file is deprecated - use AppContext from ./AppContext.tsx instead
+export const store = null as any;
+export type RootState = any;
+export type AppDispatch = any;

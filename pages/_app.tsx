@@ -1,14 +1,14 @@
-import "../styles/globals.scss";
-import type { AppProps } from "next/app";
-import { AnimatePresence } from "framer-motion";
-import { Provider } from "react-redux";
-import { store } from "../context/store";
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { AnimatePresence } from 'framer-motion';
+import { AppProvider } from '../context/AppContext';
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence mode="wait">
-      <Provider store={store}>
+      <AppProvider>
         <Component {...pageProps} />
-      </Provider>
+      </AppProvider>
     </AnimatePresence>
   );
 }

@@ -1,25 +1,20 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { SET_LOADING } from "../context/slices/app.slice";
-import { useAppSelector } from "../hooks/selectors.hook";
-import styles from "../styles/home.module.scss";
-import Loading from "../components/Loading";
-import NavbarLayout from "../components/NavbarLayout";
-import AnimatedSection from "../components/AnimatedSection";
-import Link from "next/link";
-import AnimatedLogo from "../components/AnimatedLogo";
-import cls from "classnames";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useEffect } from 'react';
+import { useApp } from '../context/AppContext';
+import Loading from '../components/Loading';
+import NavbarLayout from '../components/NavbarLayout';
+import AnimatedSection from '../components/AnimatedSection';
+import Link from 'next/link';
+import AnimatedLogo from '../components/AnimatedLogo';
 
 const Home: NextPage = () => {
-  const dispatch = useDispatch();
-  const { loading } = useAppSelector((state) => state.app);
+  const { loading, setLoading } = useApp();
 
   useEffect(() => {
-    dispatch(SET_LOADING(true));
-  }, [dispatch]);
+    setLoading(true);
+  }, [setLoading]);
 
   if (loading) return <Loading />;
 
@@ -51,25 +46,20 @@ const Home: NextPage = () => {
       </Head>
 
       <NavbarLayout>
-        <AnimatedSection className={styles.home}>
-          <div className={styles.home__wrapper}>
-            <div className={styles.home__wrapper__top}>
+        <AnimatedSection className="w-11/12 mx-auto h-[calc(100vh-61px)] flex items-center justify-center md:w-full">
+          <div className="flex flex-col items-center justify-center h-full">
+            <div className="flex-[2] flex items-center justify-center flex-col w-full">
               <AnimatedLogo animated={false} />
-              <h1 className={styles.home__wrapper__top__title}>
-                AMMERLAAN STEF ARCHITECTURE
-              </h1>
+              <h1 className="font-bold text-lg">AMMERLAAN STEF ARCHITECTURE</h1>
             </div>
-            <div className={styles.home__wrapper__bottom}>
+            <div className="mb-12 text-center md:mb-6">
               <Link
-                className={cls(
-                  styles.home__wrapper__bottom__subtitle,
-                  styles["home__wrapper__bottom__subtitle--email"]
-                )}
+                className="text-mid-gray text-sm underline cursor-pointer block"
                 href="mailto:agence@ammerlaanstefarchitecture.com"
               >
                 agence@ammerlaanstefarchitecture.com
               </Link>
-              <p className={styles.home__wrapper__bottom__subtitle}>
+              <p className="text-mid-gray text-sm underline cursor-pointer">
                 06.86.30.23.78
               </p>
             </div>

@@ -1,14 +1,13 @@
-import styles from "../../styles/single-project.module.scss";
-import { projects } from "../../mock/data";
-import { ProjectModel } from "../../types/index";
-import Slider from "../../components/Slider";
-import Footer from "../../components/Footer";
-import AnimatedSection from "../../components/AnimatedSection";
-import Head from "next/head";
+import { projects } from '../../mock/data';
+import { ProjectModel } from '../../types/index';
+import Slider from '../../components/Slider';
+import Footer from '../../components/Footer';
+import AnimatedSection from '../../components/AnimatedSection';
+import Head from 'next/head';
 
 const SingleProject = (project: ProjectModel) => {
   return (
-    <AnimatedSection className={styles.single__container}>
+    <AnimatedSection className="w-11/12 mx-auto h-screen grid place-items-center grid-rows-[auto_auto] relative md:flex md:flex-col md:h-full">
       <Head>
         <title>Stef Ammerlaan - Projects</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,20 +31,15 @@ const SingleProject = (project: ProjectModel) => {
           L’architecture proposée répond aux attentes escomptées ainsi que les contraintes du site."
         />
       </Head>
-      <div className={styles.single__container__top}>
-        <h1 className={styles.single__container__top__title}>
-          {project.title}
-        </h1>
+      <div className="">
+        <h1 className="">{project.title}</h1>
         {project.description?.map((item) => (
-          <p
-            className={styles.single__container__top__description}
-            key={item.lan}
-          >
+          <p className="" key={item.lan}>
             {item.content}
           </p>
         ))}
       </div>
-      <div className={styles.single__container__bottom}>
+      <div className="">
         <Slider images={project.images} />
       </div>
       <Footer />

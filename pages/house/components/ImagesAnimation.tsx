@@ -1,7 +1,6 @@
 import React, { RefObject, useRef } from 'react';
 import Image from 'next/image';
 import { mappedKeyImages, getSliderImages } from 'mock/data';
-import styles from 'styles/images-animations.module.scss';
 import { useState, useEffect } from 'react';
 import { sleep } from 'utils/utils.helper';
 import { useAnimatedImages } from '../../../hooks/images.hook';
@@ -16,7 +15,7 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
     [] as RefObject<HTMLDivElement>[]
   );
 
-  const [images] = useAnimatedImages(id, styles, alt);
+  const [images] = useAnimatedImages(id, {}, alt);
 
   useEffect(() => {
     setImagesRef((prev) => {
@@ -49,13 +48,9 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
   }, [imagesRefs, imagesRefs.length]);
 
   return (
-    <div className={styles.anim__container}>
+    <div className="">
       {images.map((item, id) => (
-        <div
-          key={id}
-          ref={imagesRefs[id]}
-          className={styles.anim__container__wrapper}
-        >
+        <div key={id} ref={imagesRefs[id]} className="">
           {item}
         </div>
       ))}

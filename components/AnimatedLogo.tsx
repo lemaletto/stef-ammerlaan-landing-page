@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import styles from "../styles/animated-logo.module.scss";
-import { imgLogo } from "../mock/data";
+import { motion } from 'framer-motion';
+import { imgLogo } from '../mock/data';
 
 type AnimatedLogoType = {
   animated: boolean;
@@ -21,7 +20,7 @@ export default function AnimatedLogo({ animated }: AnimatedLogoType) {
           d="M14.5991 137.859L1.52417 124.793C8.49072 117.841 14.0185 109.583 17.7915 100.493C21.5644 91.4024 23.5085 81.6575 23.5126 71.8153C23.5167 61.9731 21.5807 52.2266 17.8153 43.1331C14.0499 34.0397 8.52899 25.7776 1.56823 18.8194L19.1894 1.19824C28.4715 10.475 35.8349 21.4899 40.8587 33.6134C45.8824 45.7369 48.4682 58.7315 48.4682 71.8546C48.4682 84.9778 45.8824 97.9724 40.8587 110.096C35.8349 122.219 28.4715 133.234 19.1894 142.511L14.5991 137.859Z"
           fill="black"
           stroke="#1D1D1B"
-          strokeMiterlimit={"10"}
+          strokeMiterlimit={'10'}
         />
       </svg>
     </div>
@@ -118,7 +117,7 @@ export default function AnimatedLogo({ animated }: AnimatedLogoType) {
   );
 
   return (
-    <div className={styles.logo__container}>
+    <div>
       {animated ? (
         renderLogo()
       ) : (

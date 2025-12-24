@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "styles/house.module.scss";
+import React from 'react';
 
 interface MissionProp {
   isCompleted: boolean | undefined;
@@ -7,16 +6,16 @@ interface MissionProp {
 export default function Mission({ isCompleted }: MissionProp) {
   return isCompleted ? (
     <>
-      <p className={styles.text}>
-        <span className={styles.bold}>Mission complète /</span>
-        <span className={styles.light}> Full assignment</span>
+      <p>
+        <span className="font-bold">Mission complète /</span>
+        <span className="font-light"> Full assignment</span>
       </p>
     </>
   ) : (
     <>
-      <p className={styles.text}>
-        <span className={styles.bold}>Mission Pc /</span>
-        <span className={styles.light}> Building Permit</span>
+      <p>
+        <span className="font-bold">Mission Pc /</span>
+        <span className="font-light"> Building Permit</span>
       </p>
     </>
   );
