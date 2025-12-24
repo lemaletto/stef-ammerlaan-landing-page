@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { imgLogo } from '../mock/data';
+import { imgLogo } from '@/mock/data';
 
 type AnimatedLogoType = {
   animated: boolean;

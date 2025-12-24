@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { useApp } from '../context/AppContext';
-import { loadingVariant } from '../variants/loading.variant';
+import { useApp } from '@/context/AppContext';
+import { loadingVariant } from '@/variants/loading.variant';
 
 export default function Loading() {
   const { setLoading } = useApp();

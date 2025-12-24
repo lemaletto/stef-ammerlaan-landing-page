@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { imgLogo } from '../mock/data';
+import { imgLogo } from '@/mock/data';
 
 export default function Footer() {
   const router = useRouter();

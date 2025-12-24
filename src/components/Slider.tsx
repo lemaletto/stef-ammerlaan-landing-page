@@ -8,7 +8,7 @@ export default function Slider({ images }: SliderProp) {
   const router = useRouter();
   const goToHouseProjectById = (e: React.MouseEvent, id: string) => {
     try {
-      const url = `/house/${id}`;
+      const url = `/projects/${id}`;
       router.push(url);
       return;
     } catch (error) {

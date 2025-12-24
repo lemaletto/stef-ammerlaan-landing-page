@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
-import React from "react";
-import { appVariant } from "../variants/app.variant";
+'use client';
+
+import { motion } from 'framer-motion';
+import React from 'react';
+import { appVariant } from '@/variants/app.variant';
 
 export default function AnimatedSection({
   children,
