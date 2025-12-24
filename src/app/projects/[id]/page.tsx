@@ -163,7 +163,7 @@ export default async function SingleProject({ params }: Props) {
               href="/agency"
               className="px-8 py-3 bg-gray-900 text-white hover:bg-gray-800 transition-all duration-300 text-sm tracking-wider text-center"
             >
-              CONTACTEZ-NOUS
+              CONTACTEZ-MOI
             </Link>
           </div>
         </div>

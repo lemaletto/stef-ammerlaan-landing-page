@@ -24,11 +24,11 @@ export default function ProjectsList() {
         {/* Header */}
         <div className="mb-20">
           <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-            Nos projets
+            Projets
           </h1>
           <div className="w-20 h-px bg-gray-300 mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl">
-            Découvrez une sélection de nos réalisations architecturales, chacune
+            Découvrez une sélection de mes réalisations architecturales, chacune
             pensée pour son contexte unique et les besoins de ses habitants.
           </p>
         </div>
@@ -50,10 +50,11 @@ export default function ProjectsList() {
                     src={house.picture}
                     alt={house.alt || `Maison ${house.id}`}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     style={{ objectFit: 'cover' }}
                     className="group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-light text-gray-900 group-hover:text-gray-600 transition-colors">
@@ -83,8 +84,10 @@ export default function ProjectsList() {
           </div>
         </div>
 
-        {/* Projects Section */}
-        <div className="border-t border-gray-200 pt-16">
+        {/* Projects Section
+        // todo - to uncomment when ready
+        */}
+        {/* <div className="border-t border-gray-200 pt-16">
           <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-12 tracking-tight">
             Autres projets
           </h2>
@@ -96,16 +99,19 @@ export default function ProjectsList() {
                 className="group cursor-pointer"
               >
                 <div className="relative aspect-video mb-6 overflow-hidden bg-gray-100">
-                  {project.images[0] && (
-                    <Image
-                      src={project.images[0]}
-                      alt={project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="group-hover:scale-105 transition-transform duration-700"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                  {project.images &&
+                    project.images.length > 0 &&
+                    project.images[0] && (
+                      <Image
+                        src={project.images[0]}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{ objectFit: 'cover' }}
+                        className="group-hover:scale-105 transition-transform duration-700"
+                      />
+                    )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <div className="space-y-3">
                   <h3 className="text-2xl font-light text-gray-900 group-hover:text-gray-600 transition-colors">
@@ -134,7 +140,7 @@ export default function ProjectsList() {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Call to Action */}
         <div className="mt-24 bg-gray-50 -mx-6 md:-mx-12 px-6 md:px-12 py-16 text-center">
@@ -149,7 +155,7 @@ export default function ProjectsList() {
             href="/agency"
             className="inline-block px-8 py-3 bg-gray-900 text-white hover:bg-gray-800 transition-all duration-300 text-sm tracking-wider"
           >
-            CONTACTEZ-NOUS
+            CONTACTEZ-MOI
           </Link>
         </div>
       </AnimatedSection>

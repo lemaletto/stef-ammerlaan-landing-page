@@ -108,7 +108,7 @@ export default function Home() {
       <AnimatedSection className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 tracking-tight">
-            Contactez-nous
+            Contactez-moi
           </h2>
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center text-gray-600">
             <Link
