@@ -90,7 +90,7 @@ export default function Home() {
       <AnimatedSection className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-8 tracking-tight">
-            Notre philosophie
+            La philosophie
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed mb-6">
             Une architecture conceptuelle, contemporaine et respectueuse du

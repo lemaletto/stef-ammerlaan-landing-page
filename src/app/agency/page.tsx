@@ -161,7 +161,7 @@ export default function Agency() {
         {/* Values/Philosophy */}
         <div className="bg-gray-50 -mx-6 md:-mx-12 px-6 md:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-12 text-center tracking-tight">
-            Notre approche
+            Mon approche
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
             <div className="text-center">
