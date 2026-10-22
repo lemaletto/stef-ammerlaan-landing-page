@@ -7,53 +7,54 @@ import { motion, AnimatePresence } from 'framer-motion';
 type SliderProp = {
   images: string[] | undefined;
 };
+
 export default function Slider({ images }: SliderProp) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const formatImages = () => {
-    if (!images) return;
-    let res: { image: string; key: string }[] = [];
-    for (let i = 0; i < images.length; i++) {
-      res = [...res, { image: images[i], key: `000${i + 1}` }];
-    }
+    if (!images || images.length === 0) return null;
 
-    res = [...res, { image: '', key: '' }];
+    // images valides
+    const validImages = images.filter((img) => img && typeof img === 'string' && img.trim() !== '');
 
-    return res.map((item, id) =>
-      item.image ? (
-        <button
-          className="mr-2.5 h-37.5 cursor-pointer max-w-sm:max-h-full max-lg:h-90% group"
-          key={id}
-          onClick={() => setSelectedImage(item.image)}
-        >
-          <p className="font-bold mb-1.25 text-xs text-gray-800 group-hover:text-gray-900 transition-colors">
-            {item.key}
-          </p>
-          <div className="relative w-full h-40 max-xl:h-full max-lg:h-60 max-sm:h-40 overflow-hidden rounded-lg border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300">
-            <Image
-              layout="fill"
-              objectFit="cover"
-              src={item.image}
-              alt="sketch of a house under building"
-              className="group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-        </button>
-      ) : (
-        <div className="flex self-center justify-center" key={id}>
+    if (validImages.length === 0) {
+      return (
+        <div className="flex self-center justify-center py-8">
           <p className="flex flex-col items-center justify-center text-gray-600">
             <span className="font-bold mb-1.5">Plus à venir...</span>
             <span className="font-light">More to come...</span>
           </p>
         </div>
-      )
-    );
+      );
+    }
+
+    return validImages.map((imagePath, id) => (
+      <button
+        className="w-full cursor-pointer group text-left"
+        key={id}
+        onClick={() => setSelectedImage(imagePath)}
+      >
+        <p className="font-bold mb-2 text-xs uppercase tracking-wider text-gray-500 group-hover:text-gray-900 transition-colors">
+          {`000${id + 1}`}
+        </p>
+        {/* Grand format horizontal 16/9,centré*/}
+        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 bg-gray-50">
+          <Image
+            layout="fill"
+            objectFit="cover"
+            src={imagePath}
+            alt="Architecture project view"
+            className="group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </button>
+    ));
   };
 
   return (
     <>
       <div>
-        <div className="grid grid-cols-3 gap-16 max-lg:flex max-lg:flex-col max-lg:w-full">
+        <div className="flex flex-col gap-12 w-full">
           {formatImages()}
         </div>
       </div>

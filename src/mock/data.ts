@@ -7,13 +7,9 @@ export const navbarLinks: LinkType[] = [
     link: '/agency',
     isLink: true,
   },
+  
   {
     name: 'Projets',
-    link: '/projects',
-    isLink: true,
-  },
-  {
-    name: 'Maisons',
     isLink: false,
     items: [
       {
@@ -25,6 +21,11 @@ export const navbarLinks: LinkType[] = [
         link: '/projects/0002',
       },
     ],
+  },
+  {
+    name: 'Contact',
+    link: '/projects', /* définir le lien vers la page contact*/
+    isLink: true,
   },
 ];
 
@@ -77,16 +78,7 @@ export const houses: HouseModel[] = [
          
         L’architecture méditerranéenne est revisitée.`,
       },
-      {
-        lan: 'en',
-        content: `Located in Rochefort-du-Gard (30), The “Maison 0001” shrivells to the North limit against the cold wind (Mistral) and opens up on the south garden while controlling solar exposure.
-
-        The double height opening in the center volume is shaded in the summer and exposed in the winter, following the sun’s angle and azimuth through the year. 
-        
-        Water can be stocked on the roof in order to absorb Cevennol’s Rainfalls, (annual rainfall season)   
-        
-        Mediterranean architecture is revisited.`,
-      },
+      
     ],
     concepts: [],
   },
@@ -107,14 +99,7 @@ export const houses: HouseModel[] = [
         Cette disposition permet de créer en Rez-de-Chaussée un espace “en plus” : une terrasse couverte et ventilée, idéale pour un confort d’été. 
         `,
       },
-      {
-        lan: 'en',
-        content: `Located in  Garons (30), The “Maison 0002” is composed by 3 overlaping volumes.
-        The most easterly bloc is a garage 
-        The most westerly bloc is composed by the daytime rooms.
-        The last overlaping bloc is used for the night rooms. in addition, a walkway is connecting the first 2 blocs outside.
-        This architecture creates a new room icing on the cake in the summer : a shaded covered and windy terrace. `,
-      },
+      
     ],
     concepts: [],
   },

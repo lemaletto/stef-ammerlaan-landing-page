@@ -45,14 +45,14 @@ export default function ProjectsList() {
                 href={`/projects/${house.id}`}
                 className="group cursor-pointer"
               >
-                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-gray-100">
+                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-gray-100 rounded-2xl">
                   <Image
                     src={house.picture}
                     alt={house.alt || `Maison ${house.id}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     style={{ objectFit: 'cover' }}
-                    className="group-hover:scale-105 transition-transform duration-700"
+                    className="group-hover:scale-105 transition-transform duration-700 rounded-2xl"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>

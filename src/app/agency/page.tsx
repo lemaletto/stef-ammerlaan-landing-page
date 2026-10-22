@@ -18,6 +18,26 @@ export const metadata: Metadata = {
 export default function Agency() {
   return (
     <div className="min-h-screen bg-white">
+
+      {/*IMAGE PAYSAGE BANDEAU */}
+<div className="relative w-full h-[60vh] overflow-hidden cursor-pointer group">
+  
+  
+  <Image
+    src="/assets/images/bandeau-paysage-header.jpg"
+    alt="Projet d'architecture - Stef Ammerlaan"
+    fill
+    priority
+    style={{ objectFit: 'cover', objectPosition: 'top' }}
+    className="hover:grayscale transition-all duration-500"
+  />
+
+  {/* Voile sombre au survol */}
+  <div className="absolute inset-0 bg-black/0 transition-all duration-700 ease-in-out group-hover:bg-black/40 pointer-events-none" />
+
+</div>
+
+
       <AnimatedSection className="max-w-7xl mx-auto px-6 md:px-12 py-24">
         {/* Header */}
         <div className="mb-20">
@@ -36,12 +56,12 @@ export default function Agency() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-24">
           {/* Image */}
           <div className="lg:col-span-1">
-            <div className="relative aspect-square max-w-md mx-auto lg:mx-0 bg-gray-100 overflow-hidden">
+            <div className="relative aspect-square max-w-md mx-auto lg:mx-0 bg-gray-100 overflow-hidden rounded-2xl">
               <Image
-                layout="fill"
-                objectFit="cover"
-                src={ownerImg}
+                src="/assets/images/photo-architecte-profil.jpg"
                 alt="Stef Ammerlaan, architecte"
+                fill
+                style={{ objectFit: 'cover' }}
                 className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
@@ -53,8 +73,8 @@ export default function Agency() {
           </div>
 
           {/* Bio - French */}
-          <div className="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed">
-            <p className="text-lg">
+          <div className="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed text-justify">
+            <p>
               De nationalité néerlandaise, Stef Ammerlaan est né et a grandi
               dans le sud de la France. Imprégné de ces deux cultures
               européennes, il a su développer un attrait et un double regard sur
@@ -68,20 +88,13 @@ export default function Agency() {
               (bâtiments passifs / constructions bois), il se forge une base
               solide.
             </p>
+          
             <p>
-              Il finalise sa mise en situation dans un cabinet d'architecte de
-              Nîmes dans lequel il se forme au chantier, aux marchés publics,
-              ainsi qu'au BIM. Les connaissances acquises et les expériences
-              vécues permettent à Stef Ammerlaan de soutenir son Habilitation à
-              la Maitrise d'Oeuvre en son Nom Propre (H.M.O.N.P.) en 2021 et de
-              s'inscrire à l'ordre des architectes.
-            </p>
-            <p className="font-medium text-gray-900">
               Ammerlaan Stef Architecture est créée le 24/01/2022.
             </p>
             <p>
               L'architecture mise en place se veut conceptuelle, contemporaine
-              et respectueuse du terroir. Implanté à Nîmes, Ammerlaan Stef
+              et respectueuse du terroir. Implanté à Saint-Paul-les-Fonts dans le Gard, Ammerlaan Stef
               Architecture connaît les enjeux et les contraintes du milieu
               méditerranéen d'aujourd'hui sur les constructions et les
               habitants.
@@ -100,64 +113,7 @@ export default function Agency() {
           </div>
         </div>
 
-        {/* English Version */}
-        <div className="border-t border-gray-200 pt-16 mb-24">
-          <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-12 tracking-tight">
-            About the Agency
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-gray-600 leading-relaxed">
-            <div className="space-y-4">
-              <p>
-                As a Dutch born and raised in south of France, Stef Ammerlaan
-                became imbued with those two cultures. He developed an interest
-                in architecture, which is a universal language.
-              </p>
-              <p>
-                After being graduated from Montpellier's Architecture School
-                (ENSAM) in 2017, Stef Ammerlaan made his firsts steps into
-                professional architecture in Alsace nearby Germany and
-                Switzerland. This French region is known for it's advanced
-                building engineering (passive houses / wood constructions). His
-                skills in architecture rise to solid knowledge.
-              </p>
-              <p>
-                Back to the South of France, he finished his professionalizing
-                cursus in an architecture office located in Nîmes, in which he
-                led constructions sites, competed for public offers and was
-                initiated to BIM. These experiences allowed Stef Ammerlaan to
-                complete his ability to practice architecture in his own name
-                (H.M.O.N.P.) in 2021 and to join the French architect's order.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <p className="font-medium text-gray-900">
-                Ammerlaan Stef Architecture is created the 24/01/2022.
-              </p>
-              <p>
-                The architectural style proposed is and always will be
-                conceptual, contemporary and respectful of what may already
-                exist. Located in Nîmes, Ammerlaan Stef Architecture knows the
-                Mediterranean climate with its hazards and risks on buildings
-                and people.
-              </p>
-              <p>
-                The challenge is to think the future while our world is
-                changing. Whether the project is new or old, a specific
-                attention will be applied on the resource.
-              </p>
-              <p>
-                Materials and element's already in place will be in the center
-                of the conception.
-              </p>
-              <p>
-                The application of functionality will bring logical and
-                intuitive floor plans, the connections between spaces will be
-                smooth and straight.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        
         {/* Values/Philosophy */}
         <div className="bg-gray-50 -mx-6 md:-mx-12 px-6 md:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-12 text-center tracking-tight">
@@ -246,5 +202,7 @@ export default function Agency() {
         </div>
       </AnimatedSection>
     </div>
+
+    
   );
 }
