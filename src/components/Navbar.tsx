@@ -45,7 +45,7 @@ export default function Navbar() {
                   <Link
                     key={index}
                     href={item.link ?? '/'}
-                    className="relative cursor-pointer text-sm uppercase font-bold
+                    className="relative cursor-pointer text-sm uppercase font-bold font-family
                       text-gray-800 tracking-[0.18em] transition-all duration-400
                       hover:text-gray-900 hover:tracking-[0.24em]
                       after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
@@ -59,7 +59,7 @@ export default function Navbar() {
                   </Link>
                 ) : (
                   <div
-                    className="relative cursor-pointer text-sm uppercase font-bold
+                    className="relative cursor-pointer text-sm uppercase font-bold font-family
                       text-gray-800 tracking-[0.18em] transition-all duration-400
                       hover:text-gray-900 hover:tracking-[0.24em]
                       group py-2"
@@ -172,7 +172,7 @@ export default function Navbar() {
                           <Link
                             href={item.link ?? '/'}
                             onClick={() => setIsDrawerOpen(false)}
-                            className="block text-base uppercase font-bold text-gray-800 
+                            className="block text-base uppercase font-bold font-serif text-gray-800 
                               tracking-wider py-4 px-4 rounded-xl
                               hover:bg-gray-100 hover:text-gray-900
                               transition-all duration-300"
@@ -182,7 +182,7 @@ export default function Navbar() {
                         ) : (
                           <div className="flex flex-col">
                             <div
-                              className="text-base uppercase font-bold text-gray-800 
+                              className="text-base uppercase font-bold font-serif text-gray-800 
                               tracking-wider py-4 px-4"
                             >
                               {item.name}

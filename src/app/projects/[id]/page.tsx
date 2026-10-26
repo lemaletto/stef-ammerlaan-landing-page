@@ -80,36 +80,37 @@ export default async function SingleProject({ params }: Props) {
 
         {/* Project Header */}
         <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-8 tracking-tight text-center">
             Maison {house.id}
           </h1>
-          <div className="w-20 h-px bg-gray-300 mb-10"></div>
+          <div className="w-20 h-px bg-gray-300 mb-10 mx-auto"></div>
 
-          {/* Descriptions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {/* Descriptions en 2 colonnes, texte centré et justifié */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {house.description?.map((item) => (
               <div key={item.lan} className="space-y-4">
-                <p className="text-xs uppercase tracking-wider text-gray-400 mb-4">
+                <p className="text-xs uppercase tracking-wider text-gray-400 mb-4 text-center">
                   {item.lan === 'fr' ? 'Français' : 'English'}
                 </p>
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                {/* text-justify , text-center  */}
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line text-justify">
                   {item.content}
                 </p>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Project Images - Large Slider */}
-        <div className="mb-24">
-          <div className="relative">
-            <Slider
-              images={
-                house.concepts && house.concepts.length > 0
-                  ? house.concepts
-                  : [house.picture]
-              }
-            />
+         {/* Image grand format */}
+          <div className="w-full mt-8">
+            <div className="w-full aspect-[16/9] overflow-hidden rounded-lg shadow-md">
+              <Slider
+                images={
+                  house.concepts && house.concepts.length > 0
+                    ? house.concepts
+                    : [house.picture]
+                }
+              />
+            </div>
           </div>
         </div>
 

@@ -20,9 +20,9 @@ export default function Home() {
       <AnimatedSection className="relative h-screen flex items-center justify-center bg-linear-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-900 mb-6">
-            STEF AMMERLAAN
+            AMMERLAAN STEF
           </h1>
-          <p className="text-xl md:text-2xl font-light text-gray-600 mb-4 tracking-wide">
+          <p className="text-xl md:text-2xl font-light text-gray-600 mb-4 tracking-wide font-family">
             ARCHITECTURE
           </p>
           <div className="w-20 h-px bg-gray-300 mx-auto mb-12"></div>
@@ -61,15 +61,17 @@ export default function Home() {
                 href={`/projects/${house.id}`}
                 className="group cursor-pointer"
               >
-                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-gray-100">
+                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-gray-100 rounded-2xl group cursor-pointer">
                   <Image
                     src={house.picture}
                     alt={house.alt || `Maison ${house.id}`}
                     fill
                     style={{ objectFit: 'cover' }}
-                    className="group-hover:scale-105 transition-transform duration-700"
-                  />
+                    className="group-hover:scale-105 group-hover:grayscale transition-all duration-700 pointer-events-none rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-all duration-300 pointer-events-none rounded-2xl" />
                 </div>
+                
                 <div className="space-y-2">
                   <h3 className="text-xl font-light text-gray-900 group-hover:text-gray-600 transition-colors">
                     Maison {house.id}
