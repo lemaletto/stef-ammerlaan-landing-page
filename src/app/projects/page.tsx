@@ -36,51 +36,40 @@ export default function ProjectsList() {
         {/* Houses Grid */}
         <div className="mb-24">
           <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-12 tracking-tight">
-            Maisons individuelles
+            Explorez les projets
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {houses.map((house) => (
-              <Link
-                key={house.id}
-                href={`/projects/${house.id}`}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-gray-100 rounded-2xl">
-                  <Image
-                    src={house.picture}
-                    alt={house.alt || `Maison ${house.id}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    style={{ objectFit: 'cover' }}
-                    className="group-hover:scale-105 transition-transform duration-700 rounded-2xl"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-light text-gray-900 group-hover:text-gray-600 transition-colors">
-                    Maison {house.id}
-                  </h3>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span>
-                      {house.status === 'underConstruction'
-                        ? 'En construction'
-                        : house.status === 'inProgress'
-                        ? 'En cours'
-                        : 'Livré'}
-                    </span>
-                    {house.date && (
-                      <>
-                        <span>•</span>
-                        <span>{new Date(house.date).getFullYear()}</span>
-                      </>
-                    )}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            {houses.map((house, index) => {
+              const isLarge = index % 3 === 0;
+
+              return (
+                <Link
+                  key={house.id}
+                  href={`/projects/${house.id}`}
+                  className={`group cursor-pointer ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
+                >
+                  <div className={`relative ${isLarge ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden bg-gray-100 rounded-2xl`}>
+                    <Image
+                      src={house.picture}
+                      alt={house.alt || `Maison ${house.id}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      style={{ objectFit: 'cover' }}
+                      className="group-hover:scale-105 transition-transform duration-700 rounded-2xl"
+                    />
+
+                    {/* Barre de titre par image */}
+                    <div className="absolute top-0 inset-x-0 bg-white/90 backdrop-blur-sm px-6 py-4 shadow-sm opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10 rounded-t-2xl">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 tracking-tight text-left">
+                        {house.category === 'Tertiaires' ? 'Bureau' : house.category === 'ERP' ? 'Projet' : 'Maison'} {house.id}
+                      </h3>
+                    </div>
+
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none rounded-2xl"></div>
                   </div>
-                  <p className="text-sm text-gray-600 line-clamp-2">
-                    {house.description[0]?.content.slice(0, 120)}...
-                  </p>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
