@@ -26,8 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const prefix = house.category === 'Tertiaires' ? 'Bureau' : house.category === 'ERP' ? 'Projet' : 'Maison';
+
   return {
-    title: `Maison ${house.id} - Stef Ammerlaan Architecture`,
+    title: `${prefix} ${house.id} - Stef Ammerlaan Architecture`,
     description:
       house.description.find((d) => d.lan === 'fr')?.content ||
       "Chaque maison développée chez Ammerlaan Stef Architecture démarre par la prise en compte d'un programme établi du Maitre d'Ouvrage (client).",
@@ -65,6 +67,10 @@ export default async function SingleProject({ params }: Props) {
     );
   }
 
+  const projectPrefix = 
+    house.category === 'Tertiaires' ? 'Bureau' : 
+    house.category === 'ERP' ? 'Projet' : 'Maison';
+
   return (
     <div className="min-h-screen bg-white">
       <AnimatedSection className="max-w-7xl mx-auto px-6 md:px-12 py-24">
@@ -81,7 +87,7 @@ export default async function SingleProject({ params }: Props) {
         {/* Project Header */}
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-8 tracking-tight text-center">
-            Maison {house.id}
+            {projectPrefix} {house.id}
           </h1>
           <div className="w-20 h-px bg-gray-300 mb-10 mx-auto"></div>
 
@@ -102,17 +108,15 @@ export default async function SingleProject({ params }: Props) {
 
          {/* Image grand format */}
           <div className="w-full mt-8">
-            <div className="w-full aspect-[16/9] overflow-hidden rounded-lg shadow-md">
-              <Slider
-                images={
-                  house.concepts && house.concepts.length > 0
-                    ? house.concepts
-                    : [house.picture]
-                }
-              />
-            </div>
-          </div>
+            <Slider
+            images={
+            house.concepts && house.concepts.length > 0
+            ? house.concepts
+            : [house.picture]
+            }
+          />
         </div>
+      </div>
 
         {/* Project Info Grid */}
         <div className="border-t border-gray-200 pt-16 mb-16">
@@ -151,7 +155,7 @@ export default async function SingleProject({ params }: Props) {
         {/* Navigation to other projects */}
         <div className="border-t border-gray-200 pt-16">
           <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-8">
-            Autres projets
+            Explorez les projets
           </h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link

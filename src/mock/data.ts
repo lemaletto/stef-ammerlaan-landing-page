@@ -10,21 +10,45 @@ export const navbarLinks: LinkType[] = [
   
   {
     name: 'Projets',
+    link: '/projects',
     isLink: false,
-    items: [
+   items: [
       {
-        name: 'Maison 0001',
-        link: '/projects/0001',
+        name: 'Maisons individuelles',
+        isLink: false,
+        items: [
+          {
+            name: 'Maison 0001',
+            link: '/projects/0001',
+          },
+          {
+            name: 'Maison 0002',
+            link: '/projects/0002',
+          },
+        ],
       },
       {
-        name: 'Maison 0002',
-        link: '/projects/0002',
+        name: 'Tertiaires',
+        isLink: false,
+        items: [
+          {
+            name : 'Bureau 0053',
+            link: '/projects/0053'
+          }
+        ]
+      },
+
+
+      {
+        name: 'ERP',
+        link: '/projects/erp',
+        isLink: true,
       },
     ],
   },
   {
     name: 'Contact',
-    link: '/projects', /* définir le lien vers la page contact*/
+    link: '/contact',
     isLink: true,
   },
 ];
@@ -62,6 +86,7 @@ export const SingleHouseTwo = `/assets/images/Single-House-2.png`;
 export const houses: HouseModel[] = [
   {
     id: '0001',
+    category: 'Maisons individuelles',
     date: new Date('2022') as any,
     status: 'underConstruction',
     missionCompleted: true,
@@ -84,6 +109,7 @@ export const houses: HouseModel[] = [
   },
   {
     id: '0002',
+    category: 'Maisons individuelles',
     date: new Date('2022') as any,
     status: 'inProgress',
     missionCompleted: false,
@@ -103,6 +129,29 @@ export const houses: HouseModel[] = [
     ],
     concepts: [],
   },
+  {
+  id: '0053',
+    category: 'Tertiaires',
+    date: new Date('2025') as any,
+    status: 'completed',
+    missionCompleted: true,
+    picture: "/assets/images/0053_EALICO/Bureaux Boulbon-5.jpg",
+    alt: 'Vue bureaux 0053',
+    description: [
+      {
+        lan: 'fr',
+        content: `Bureaux EALICO à Boulbon`,
+      },
+      
+    ],
+    concepts: [
+      "/assets/images/0053_EALICO/Bureaux Boulbon-5.jpg",
+      "/assets/images/0053_EALICO/Bureaux Boulbon-1-floute.jpg",
+      "/assets/images/0053_EALICO/Bureaux Boulbon-2-floute.jpg",
+      "/assets/images/0053_EALICO/Bureaux Boulbon-3-floute.jpg",
+      "/assets/images/0053_EALICO/Bureaux Boulbon-4-floute.jpg",
+    ],
+  },
 ];
 
 export const imgLogo = `/assets/svg/logo.svg`;
@@ -119,5 +168,9 @@ export const mappedKeyImages = [
   {
     key: '0002',
     maxCount: 14,
+  },
+  {
+    key: '0053',
+    maxCount: 10,
   },
 ];
