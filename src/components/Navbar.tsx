@@ -40,45 +40,63 @@ export default function Navbar() {
 
             {/* Desktop Menu */}
             <ul className="hidden lg:flex items-center justify-center gap-12 md:gap-10">
-              {navbarLinks.map((item, index) =>
-                item.isLink ? (
-                  <Link
-                    key={index}
-                    href={item.link ?? '/'}
-                    className="relative cursor-pointer text-sm uppercase font-bold font-family
-                      text-gray-800 tracking-[0.18em] transition-all duration-400
-                      hover:text-gray-900 hover:tracking-[0.24em]
-                      after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
-                      after:h-[3px] after:bg-gradient-to-r after:from-gray-800 after:via-gray-900 after:to-gray-800
-                      after:scale-x-0 after:transition-transform after:duration-400 after:ease-out
-                      hover:after:scale-x-100
-                      after:rounded-full
-                      py-2"
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
+              {navbarLinks.map((item, index) => {
+                
+                const hasDropdown = item.items && item.items.length > 0;
+
+                return (
                   <div
+                    key={index}
                     className="relative cursor-pointer text-sm uppercase font-bold font-family
                       text-gray-800 tracking-[0.18em] transition-all duration-400
                       hover:text-gray-900 hover:tracking-[0.24em]
                       group py-2"
-                    key={index}
                   >
-                    <span
-                      className="relative
-                        after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
-                        after:h-[3px] after:bg-gradient-to-r after:from-gray-800 after:via-gray-900 after:to-gray-800
-                        after:scale-x-0 after:transition-transform after:duration-400 after:ease-out
-                        group-hover:after:scale-x-100
-                        after:rounded-full"
-                    >
-                      {item.name}
-                    </span>
-                    <Dropdown items={item.items} />
+                    {/* Sous-menu + lien cliquable + dropdown */}
+                    {hasDropdown ? (
+                      item.link ? (
+                        <Link
+                          href={item.link}
+                          className="relative
+                            after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
+                            after:h-[3px] after:bg-gradient-to-r after:from-gray-800 after:via-gray-900 after:to-gray-800
+                            after:scale-x-0 after:transition-transform after:duration-400 after:ease-out
+                            group-hover:after:scale-x-100
+                            after:rounded-full"
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <span
+                          className="relative
+                            after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
+                            after:h-[3px] after:bg-gradient-to-r after:from-gray-800 after:via-gray-900 after:to-gray-800
+                            after:scale-x-0 after:transition-transform after:duration-400 after:ease-out
+                            group-hover:after:scale-x-100
+                            after:rounded-full"
+                        >
+                          {item.name}
+                        </span>
+                      )
+                    ) : (
+                      <Link
+                        href={item.link ?? '/'}
+                        className="relative
+                          after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0
+                          after:h-[3px] after:bg-gradient-to-r after:from-gray-800 after:via-gray-900 after:to-gray-800
+                          after:scale-x-0 after:transition-transform after:duration-400 after:ease-out
+                          hover:after:scale-x-100
+                          after:rounded-full"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+
+                    {/* Affichage du dropdown si l'élément possède des sous-éléments */}
+                    {hasDropdown && <Dropdown items={item.items} />}
                   </div>
-                )
-              )}
+                );
+              })}
             </ul>
 
             {/* Mobile Burger Menu */}
@@ -166,46 +184,65 @@ export default function Navbar() {
                 {/* Drawer Links */}
                 <nav className="flex-1 p-6">
                   <ul className="flex flex-col gap-2">
-                    {navbarLinks.map((item, index) => (
-                      <li key={index}>
-                        {item.isLink ? (
-                          <Link
-                            href={item.link ?? '/'}
-                            onClick={() => setIsDrawerOpen(false)}
-                            className="block text-base uppercase font-bold font-serif text-gray-800 
-                              tracking-wider py-4 px-4 rounded-xl
-                              hover:bg-gray-100 hover:text-gray-900
-                              transition-all duration-300"
-                          >
-                            {item.name}
-                          </Link>
-                        ) : (
-                          <div className="flex flex-col">
-                            <div
-                              className="text-base uppercase font-bold font-serif text-gray-800 
-                              tracking-wider py-4 px-4"
-                            >
-                              {item.name}
-                            </div>
-                            <div className="pl-4 flex flex-col gap-1">
-                              {item.items?.map((subItem, subIndex) => (
+                    {navbarLinks.map((item, index) => {
+                      //  Vérification de la présence de sous-éléments pour le menu mobile
+                      const hasDropdown = item.items && item.items.length > 0;
+
+                      return (
+                        <li key={index}>
+                          {hasDropdown ? (
+                            <div className="flex flex-col">
+                              {/*  Si le dossier parent a un lien, on le rend cliquable dans le tiroir mobile */}
+                              {item.link ? (
                                 <Link
-                                  key={subIndex}
-                                  href={subItem.link ?? '/'}
+                                  href={item.link}
                                   onClick={() => setIsDrawerOpen(false)}
-                                  className="block text-sm font-semibold text-gray-700 
-                                    uppercase tracking-wide py-3 px-4 rounded-lg
+                                  className="block text-base uppercase font-bold font-serif text-gray-800 
+                                    tracking-wider py-4 px-4 rounded-xl
                                     hover:bg-gray-100 hover:text-gray-900
                                     transition-all duration-300"
                                 >
-                                  {subItem.name}
+                                  {item.name}
                                 </Link>
-                              ))}
+                              ) : (
+                                <div
+                                  className="text-base uppercase font-bold font-serif text-gray-800 
+                                  tracking-wider py-4 px-4"
+                                >
+                                  {item.name}
+                                </div>
+                              )}
+                              <div className="pl-4 flex flex-col gap-1">
+                                {item.items?.map((subItem, subIndex) => (
+                                  <Link
+                                    key={subIndex}
+                                    href={subItem.link ?? '/'}
+                                    onClick={() => setIsDrawerOpen(false)}
+                                    className="block text-sm font-semibold text-gray-700 
+                                      uppercase tracking-wide py-3 px-4 rounded-lg
+                                      hover:bg-gray-100 hover:text-gray-900
+                                      transition-all duration-300"
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </li>
-                    ))}
+                          ) : (
+                            <Link
+                              href={item.link ?? '/'}
+                              onClick={() => setIsDrawerOpen(false)}
+                              className="block text-base uppercase font-bold font-serif text-gray-800 
+                                tracking-wider py-4 px-4 rounded-xl
+                                hover:bg-gray-100 hover:text-gray-900
+                                transition-all duration-300"
+                            >
+                              {item.name}
+                            </Link>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </nav>
               </div>

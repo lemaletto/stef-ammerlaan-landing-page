@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 import Navbar from './Navbar';
 import Loading from './Loading';
+import CustomCursor from './CustomCursor';
 import { useApp } from '@/context/AppContext';
 
 type NavbarLayoutType = {
@@ -19,6 +20,7 @@ export default function NavbarLayout({ children }: NavbarLayoutType) {
         <Loading />
       ) : (
         <>
+        <CustomCursor />
           <Navbar />
           <Analytics />
           {children}

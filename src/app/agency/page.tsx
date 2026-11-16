@@ -24,12 +24,12 @@ export default function Agency() {
   
   
   <Image
-    src="/assets/images/bandeau-paysage-header.jpg"
+    src="/assets/images/simon-spring-KqZ7D0JSQYk-unsplash.jpg"
     alt="Projet d'architecture - Stef Ammerlaan"
     fill
     priority
-    style={{ objectFit: 'cover', objectPosition: 'top' }}
-    className="hover:grayscale transition-all duration-500"
+    style={{ objectFit: 'cover', objectPosition: 'center' }}
+    className=" transition-all duration-500"
   />
 
   {/* Voile sombre au survol */}

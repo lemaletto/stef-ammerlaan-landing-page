@@ -34,9 +34,7 @@ export default function Slider({ images }: SliderProp) {
         key={id}
         onClick={() => setSelectedImage(imagePath)}
       >
-        <p className="font-bold mb-2 text-xs uppercase tracking-wider text-gray-500 group-hover:text-gray-900 transition-colors">
-          {`000${id + 1}`}
-        </p>
+        
         {/* Grand format horizontal 16/9,centré*/}
         <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 bg-gray-50">
           <Image
@@ -56,6 +54,21 @@ export default function Slider({ images }: SliderProp) {
       <div>
         <div className="flex flex-col gap-12 w-full">
           {formatImages()}
+        </div>
+
+        {/* Crédit photos */}
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-500 tracking-wider">
+            Photographies :{' '}
+            <a
+              href="https://www.lucdipietro.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-900 underline hover:text-gray-600 transition-colors"
+            >
+              Luc Di Pietro
+            </a>
+          </p>
         </div>
       </div>
 

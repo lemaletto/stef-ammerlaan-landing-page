@@ -1,5 +1,6 @@
 export type HouseModel = {
   id: string;
+  category?: string;
   status: "completed" | "underConstruction" | "inProgress";
   missionCompleted: boolean;
   date: Date & string;
