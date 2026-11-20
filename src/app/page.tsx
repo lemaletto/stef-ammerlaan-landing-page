@@ -17,29 +17,28 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      {/* --- DEBUT MODIF : hauteur adaptative (remplace h-screen) pour s'arrêter un peu sous les boutons --- */}
+      
       <AnimatedSection className="relative pt-28 pb-20 md:pt-32 md:pb-24 flex items-center justify-center overflow-hidden">
-        {/* --- FIN MODIF --- */}
+        
 
-        {/* --- DEBUT AJOUT : image en arrière-plan pleine largeur --- */}
+        {/* --- image en arrière-plan pleine largeur --- */}
         <img
           src="/assets/images/0012_Harvey/0012_Harvey-9.webp"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-0"
         />
-        {/* --- FIN AJOUT --- */}
+      
 
-        {/* --- DEBUT AJOUT : voile semi-transparent pour garder le texte et les boutons lisibles --- */}
+        {/* --- voile semi-transparent sur l'image --- */}
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-white/60 backdrop-blur-[1px] pointer-events-none z-10"
         />
-        {/* --- FIN AJOUT --- */}
+        
 
-        {/* --- DEBUT MODIF : ajout de relative z-20 pour placer le contenu au-dessus de l'image et du voile --- */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 text-center">
-          {/* --- FIN MODIF --- */}
+          
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-900 mb-6">
             AMMERLAAN STEF
           </h1>
@@ -53,12 +52,13 @@ export default function Home() {
             Solutions architecturales novatrices et respectueuses
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* --- DEBUT MODIF : léger fond blanc sur le premier bouton pour le contraste --- */}
+
+            {/* --- Léger fond blanc sur premier bouton --- */}
             <Link
               href="/agency"
               className="px-8 py-3 border border-gray-900 bg-white/70 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm tracking-wider"
             >
-              {/* --- FIN MODIF --- */}
+             
               DÉCOUVRIR L&apos;AGENCE
             </Link>
             <Link
