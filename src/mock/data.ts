@@ -25,6 +25,14 @@ export const navbarLinks: LinkType[] = [
             name: 'Maison 0002',
             link: '/projects/0002',
           },
+          {
+            name: 'Maison 0012',
+            link: '/projects/0012',
+          },
+          {
+            name: 'Maison 0013',
+            link: '/projects/0013',
+          },
         ],
       },
       {
@@ -41,8 +49,21 @@ export const navbarLinks: LinkType[] = [
 
       {
         name: 'ERP',
-        link: '/projects/erp',
-        isLink: true,
+        isLink: false,
+        items: [
+          {
+            name :'ERP 0017',
+            link: '/projects/0017'
+          },
+          {
+            name :'ERP 0026',
+            link: '/projects/0026'
+          },
+          {
+            name :'ERP 0040',
+            link: '/projects/0040'
+          }
+        ]
       },
     ],
   },
@@ -80,8 +101,8 @@ export const projects: ProjectModel[] = [
   },
 ];
 
-export const SingleHouseOne = `/assets/images/Single-House-1.png`;
-export const SingleHouseTwo = `/assets/images/Single-House-2.png`;
+export const SingleHouseOne = `/assets/images/Single-House-1.png`; /*à supprimer ?*/
+export const SingleHouseTwo = `/assets/images/Single-House-2.png`; /*à supprimer ?*/
 
 export const houses: HouseModel[] = [
   {
@@ -90,23 +111,25 @@ export const houses: HouseModel[] = [
     date: new Date('2022') as any,
     status: 'underConstruction',
     missionCompleted: true,
-    picture: SingleHouseOne,
+    picture: "/assets/images/0001_Stuck/Maison Rochefort-10.webp",
     alt: 'Vue maison 0001',
     description: [
-      {
-        lan: 'fr',
-        content: `Située à Rochefort-du-Gard (30), la Maison 0001 se recroqueville en limite Nord contre le Mistral et s’ouvre sur le jardin coté Sud tout en maîtrisant les apports caloriques solaires.
-
-        L’ouverture en double hauteur du volume central est abritée du soleil l’été et est exposée l’hiver, suivant l’angle et l’azimut du soleil au cours de l’année.
-        
-        La rétention des eaux de pluies est traitée partiellement en toiture afin d’absorber en partie les pluies cévennoles, 
-         
-        L’architecture méditerranéenne est revisitée.`,
-      },
       
     ],
-    concepts: [],
+    concepts: [
+      "/assets/images/0001_Stuck/Maison Rochefort-10.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-1.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-2.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-3.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-4.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-5.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-6.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-7.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-8.webp",
+      "/assets/images/0001_Stuck/Maison Rochefort-9.webp",
+    ],
   },
+   
   {
     id: '0002',
     category: 'Maisons individuelles',
@@ -116,19 +139,144 @@ export const houses: HouseModel[] = [
     picture: SingleHouseTwo,
     alt: 'Vue maison 0002',
     description: [
-      {
-        lan: 'fr',
-        content: `Située à Garons (30), la Maison 0002 est constituée de 3 volumes empilés. 
-        Le premier bloc le plus à l’Est est un garage,
-        Le deuxième bloc, le plus à l'ouest constitue la zone diurne de la maison.
-        Le dernier bloc, qui relie les deux premiers par empilement, constitue la zone nocturne de  la maison. Ce volume est doublé d’une passerelle reliant de l'extérieur les 2 premiers volumes. 
-        Cette disposition permet de créer en Rez-de-Chaussée un espace “en plus” : une terrasse couverte et ventilée, idéale pour un confort d’été. 
-        `,
-      },
       
     ],
     concepts: [],
   },
+  {
+    id: '0012',
+    category: 'Maisons individuelles',
+    date: new Date('2022') as any,
+    status: 'underConstruction',
+    missionCompleted: true,
+    picture: "/assets/images/0012_Harvey/0012_Harvey-1.webp",
+    alt: 'Vue maison 0012',
+    description: [   
+    ],
+    concepts: [
+      "/assets/images/0012_Harvey/0012_Harvey-1.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-2.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-3.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-4.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-5.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-6.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-7.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-8.webp",
+      "/assets/images/0012_Harvey/0012_Harvey-9.webp",
+    ],
+  },
+
+{
+    id: '0013',
+    category: 'Maisons individuelles',
+    date: new Date('2022') as any,
+    status: 'inProgress',
+    missionCompleted: false,
+    picture: "/assets/images/0013_Pittie/0013_Pittie-15.webp",
+    alt: 'Vue maison 0013',
+    description: [
+      {
+        lan: 'fr',
+        content: `à écrire`,
+      },
+      
+    ],
+    concepts: [
+      "/assets/images/0013_Pittie/0013_Pittie-15.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-16.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-17.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-18.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-19.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-20.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-21.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-22.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-23.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-24.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-25.webp",
+      "/assets/images/0013_Pittie/0013_Pittie-26.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-1.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-2.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-3.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-4.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-5.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-6.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-7.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-8.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-9.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-10.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-11.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-12.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-13.webp",
+      "/assets/images/0013_Pittie/Maison_Uzes-14.webp",
+    ],
+  },
+  {
+    id: '0017',
+    category: 'ERP',
+    date: new Date('2022') as any,
+    status: 'underConstruction',
+    missionCompleted: true,
+    picture: "/assets/images/0017_IACCA/0017_IACCA-8.webp",
+    alt: 'Vue erp 0017',
+    description: [   
+    ],
+    concepts: [
+      "/assets/images/0017_IACCA/0017_IACCA-8.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-1.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-2.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-3.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-4.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-5.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-6.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-7.webp",
+      "/assets/images/0017_IACCA/0017_IACCA-9.webp",
+    
+    ],
+  },
+  {
+    id: '0026',
+    category: 'ERP',
+    date: new Date('2022') as any,
+    status: 'underConstruction',
+    missionCompleted: true,
+    picture: "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-2.webp",
+    alt: 'Vue erp 0026',
+    description: [   
+    ],
+    concepts: [
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-3.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-4.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-5.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-7.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-9.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-10.webp",
+      "/assets/images/0026_Tony Lainé/Hopital_Beaucaire-11.webp",
+    
+    ],
+  },
+  {
+    id: '0040',
+    category: 'ERP',
+    date: new Date('2022') as any,
+    status: 'underConstruction',
+    missionCompleted: true,
+    picture: "/assets/images/0040_Scanner Auriol/0040_02B.webp",
+    alt: 'Vue erp 0040',
+    description: [   
+    ],
+    concepts: [
+      "/assets/images/0040_Scanner Auriol/0040_02B.webp",
+      "/assets/images/0040_Scanner Auriol/0040_01A.webp",
+      "/assets/images/0040_Scanner Auriol/0040_01B.webp",
+      "/assets/images/0040_Scanner Auriol/0040_03A.webp",
+      "/assets/images/0040_Scanner Auriol/0040_03B.webp",
+      "/assets/images/0040_Scanner Auriol/0040_04.webp",
+      "/assets/images/0040_Scanner Auriol/0040_05.webp",
+      "/assets/images/0040_Scanner Auriol/0040_06.webp",
+      "/assets/images/0040_Scanner Auriol/0040_07.webp",    
+    ],
+  },
+
   {
   id: '0053',
     category: 'Tertiaires',

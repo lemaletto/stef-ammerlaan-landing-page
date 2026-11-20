@@ -17,25 +17,48 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <AnimatedSection className="relative h-screen flex items-center justify-center bg-linear-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+      {/* --- DEBUT MODIF : hauteur adaptative (remplace h-screen) pour s'arrêter un peu sous les boutons --- */}
+      <AnimatedSection className="relative pt-28 pb-20 md:pt-32 md:pb-24 flex items-center justify-center overflow-hidden">
+        {/* --- FIN MODIF --- */}
+
+        {/* --- DEBUT AJOUT : image en arrière-plan pleine largeur --- */}
+        <img
+          src="/assets/images/0012_Harvey/0012_Harvey-9.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-0"
+        />
+        {/* --- FIN AJOUT --- */}
+
+        {/* --- DEBUT AJOUT : voile semi-transparent pour garder le texte et les boutons lisibles --- */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-white/60 backdrop-blur-[1px] pointer-events-none z-10"
+        />
+        {/* --- FIN AJOUT --- */}
+
+        {/* --- DEBUT MODIF : ajout de relative z-20 pour placer le contenu au-dessus de l'image et du voile --- */}
+        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 text-center">
+          {/* --- FIN MODIF --- */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-900 mb-6">
             AMMERLAAN STEF
           </h1>
-          <p className="text-xl md:text-2xl font-light text-gray-600 mb-4 tracking-wide font-family">
+          <p className="text-xl md:text-2xl font-light text-gray-700 mb-4 tracking-wide font-family">
             ARCHITECTURE
           </p>
-          <div className="w-20 h-px bg-gray-300 mx-auto mb-12"></div>
-          <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <div className="w-20 h-px bg-gray-400 mx-auto mb-12"></div>
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
             Architecte franco-néerlandais basé dans le Gard
             <br />
             Solutions architecturales novatrices et respectueuses
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* --- DEBUT MODIF : léger fond blanc sur le premier bouton pour le contraste --- */}
             <Link
               href="/agency"
-              className="px-8 py-3 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm tracking-wider"
+              className="px-8 py-3 border border-gray-900 bg-white/70 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm tracking-wider"
             >
+              {/* --- FIN MODIF --- */}
               DÉCOUVRIR L&apos;AGENCE
             </Link>
             <Link
@@ -68,13 +91,13 @@ export default function Home() {
                     fill
                     style={{ objectFit: 'cover' }}
                     className="group-hover:scale-105 group-hover:grayscale transition-all duration-700 pointer-events-none rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-all duration-300 pointer-events-none rounded-2xl" />
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-all duration-300 pointer-events-none rounded-2xl" />
                 </div>
-                
+
                 <div className="space-y-2">
                   <h3 className="text-xl font-light text-gray-900 group-hover:text-gray-600 transition-colors">
-                    Maison {house.id}
+                    Projet {house.id}
                   </h3>
                   <p className="text-sm text-gray-500">
                     {house.status === 'underConstruction'
