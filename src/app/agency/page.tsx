@@ -24,7 +24,7 @@ export default function Agency() {
   
   
   <Image
-    src="/assets/images/simon-spring-KqZ7D0JSQYk-unsplash.jpg"
+    src="/assets/images/0012_Harvey/0012_Harvey-1.webp"
     alt="Projet d'architecture - Stef Ammerlaan"
     fill
     priority

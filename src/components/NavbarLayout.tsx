@@ -3,7 +3,7 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/next';
 
-import Navbar from './Navbar';
+import Navbar from './Navbar'; /*Remplacer "CompassNav" par "Navbar" pour revenir à l'ancienne Navbar*/
 import Loading from './Loading';
 import CustomCursor from './CustomCursor';
 import { useApp } from '@/context/AppContext';
@@ -14,6 +14,7 @@ type NavbarLayoutType = {
 export default function NavbarLayout({ children }: NavbarLayoutType) {
   const { loading } = useApp();
 
+  /*Remplacer "CompassNav" par "Navbar" pour revenir à l'ancienne Navbar*/
   return (
     <>
       {loading ? (
@@ -21,7 +22,7 @@ export default function NavbarLayout({ children }: NavbarLayoutType) {
       ) : (
         <>
         <CustomCursor />
-          <Navbar />
+          <Navbar /> 
           <Analytics />
           {children}
         </>
